@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Rogue School Board Member's Handbook</title>
+  <meta name="description" content="A practical guide for school board members who prioritize student outcomes over adult interests. By Airick Journey Crabill." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── CSS custom properties ── */
+    :root {
+      --near-black: #111111;
+      --crimson:    #CC0000;
+      --dark-crimson: #990000;
+      --white:      #FFFFFF;
+      --light-gray: #F5F5F5;
+      --mid-gray:   #AAAAAA;
+      --dim-white:  #CCCCCC;
+      --border-radius: 4px;
+      --card-border: 4px solid var(--crimson);
+      --transition: 0.2s ease;
+    }
+
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--near-black);
+      color: var(--white);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    img { display: block; max-width: 100%; }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ── Utility ── */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 clamp(1rem, 5vw, 3rem);
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 3px;
+      margin-bottom: 0.75rem;
+    }
+
+    .label-gray {
+      background: #DDDDDD;
+      color: #444444;
+    }
+
+    .label-crimson {
+      background: var(--crimson);
+      color: var(--white);
+    }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 2rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: background var(--transition), color var(--transition), border-color var(--transition);
+      border: 2px solid transparent;
+    }
+
+    .btn-crimson {
+      background: var(--crimson);
+      color: var(--white);
+      border-color: var(--crimson);
+    }
+    .btn-crimson:hover {
+      background: var(--dark-crimson);
+      border-color: var(--dark-crimson);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border-color: var(--white);
+    }
+    .btn-outline:hover {
+      background: var(--white);
+      color: var(--near-black);
+    }
+
+    .btn-outline-dark {
+      background: transparent;
+      color: var(--near-black);
+      border-color: var(--near-black);
+    }
+    .btn-outline-dark:hover {
+      background: var(--near-black);
+      color: var(--white);
+    }
+
+    /* ══════════════════════════════
+       1. STICKY NAV
+    ══════════════════════════════ */
+    #site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: var(--near-black);
+      border-bottom: 1px solid #222;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      gap: 1rem;
+    }
+
+    .nav-logo {
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
+      font-weight: 800;
+      color: var(--white);
+      white-space: nowrap;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: clamp(0.75rem, 2.5vw, 2rem);
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+      font-weight: 600;
+      color: var(--dim-white);
+      padding-bottom: 3px;
+      border-bottom: 2px solid transparent;
+      transition: color var(--transition), border-color var(--transition);
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+      border-bottom-color: var(--crimson);
+    }
+
+    /* ══════════════════════════════
+       2. HERO
+    ══════════════════════════════ */
+    #hero {
+      background: var(--near-black);
+      padding: clamp(5rem, 12vw, 9rem) 0 clamp(4rem, 8vw, 7rem);
+    }
+
+    .hero-heading {
+      font-size: clamp(2rem, 5.5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      max-width: 900px;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-rule {
+      width: clamp(60px, 12vw, 100px);
+      height: 5px;
+      background: var(--crimson);
+      margin-bottom: 1.75rem;
+      border: none;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-weight: 300;
+      color: var(--dim-white);
+      max-width: 680px;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* ══════════════════════════════
+       3. ROGUE CRITERIA
+    ══════════════════════════════ */
+    #rogue-criteria {
+      background: var(--near-black);
+      padding: clamp(4rem, 8vw, 7rem) 0;
+      border-top: 1px solid #222;
+    }
+
+    .criteria-eyebrow {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--crimson);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title-light {
+      font-size: clamp(1.75rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .criteria-intro {
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      color: var(--dim-white);
+      max-width: 600px;
+      margin-bottom: 3rem;
+    }
+
+    .criteria-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .criterion {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      border-left: 4px solid var(--crimson);
+      padding: 1.25rem 1.5rem;
+      background: #1A1A1A;
+    }
+
+    .criterion-number {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 800;
+      color: var(--crimson);
+      line-height: 1;
+      flex-shrink: 0;
+      min-width: 1.5ch;
+    }
+
+    .criterion-body {
+      padding-top: 0.25rem;
+    }
+
+    .criterion-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .criterion-text {
+      font-size: 0.975rem;
+      color: var(--dim-white);
+      line-height: 1.7;
+    }
+
+    .criteria-coda {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--crimson);
+    }
+
+    /* ══════════════════════════════
+       4. CORE DISTINCTION
+    ══════════════════════════════ */
+    #core-distinction {
+      background: var(--light-gray);
+      color: var(--near-black);
+      padding: clamp(4rem, 8vw, 7rem) 0;
+    }
+
+    .section-title-dark {
+      font-size: clamp(1.75rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--near-black);
+      margin-bottom: 2.5rem;
+    }
+
+    .distinction-cols {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      .distinction-cols { grid-template-columns: 1fr; }
+    }
+
+    .distinction-card {
+      background: var(--white);
+      padding: 1.75rem;
+      border-radius: var(--border-radius);
+    }
+
+    .distinction-card.highlight {
+      border: 2px solid var(--crimson);
+    }
+
+    .distinction-card-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--near-black);
+      margin: 0.75rem 0 0.5rem;
+    }
+
+    .distinction-card-text {
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.65;
+    }
+
+    .distinction-statement {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-weight: 600;
+      color: var(--near-black);
+      max-width: 780px;
+      margin-bottom: 2.5rem;
+    }
+
+    .stat-callout {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      background: var(--white);
+      border-left: 5px solid var(--crimson);
+      padding: 1.5rem 2rem;
+      max-width: 520px;
+      border-radius: var(--border-radius);
+    }
+
+    .stat-number {
+      font-size: clamp(3rem, 7vw, 4.5rem);
+      font-weight: 800;
+      color: var(--crimson);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .stat-text {
+      font-size: 0.95rem;
+      color: #444;
+      line-height: 1.5;
+    }
+
+    /* ══════════════════════════════
+       5. POLICY DIET
+    ══════════════════════════════ */
+    #policy-diet {
+      background: var(--near-black);
+      padding: clamp(4rem, 8vw, 7rem) 0;
+    }
+
+    .policy-eyebrow {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--crimson);
+      margin-bottom: 0.75rem;
+    }
+
+    .policy-subtitle {
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      color: var(--dim-white);
+      max-width: 620px;
+      margin-bottom: 3rem;
+    }
+
+    .policy-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      .policy-cols { grid-template-columns: 1fr; }
+    }
+
+    .policy-card {
+      padding: 2rem;
+      border-radius: var(--border-radius);
+    }
+
+    .policy-card.bloated {
+      background: #1C1C1C;
+      border: 1px solid #333;
+      color: var(--mid-gray);
+    }
+
+    .policy-card.rogue {
+      background: #1C1C1C;
+      border-left: 4px solid var(--crimson);
+      color: var(--dim-white);
+    }
+
+    .policy-card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .policy-card.bloated .policy-card-title { color: #888; }
+    .policy-card.rogue .policy-card-title { color: var(--crimson); }
+
+    .policy-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .policy-card ul li {
+      font-size: 0.925rem;
+      line-height: 1.5;
+      padding-left: 1.25rem;
+      position: relative;
+    }
+
+    .policy-card.bloated ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: #555;
+    }
+
+    .policy-card.rogue ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--crimson);
+    }
+
+    .policy-statement {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-weight: 600;
+      color: var(--white);
+      font-style: italic;
+      border-left: 4px solid var(--crimson);
+      padding-left: 1.25rem;
+      max-width: 680px;
+    }
+
+    /* ══════════════════════════════
+       6. TOOLS
+    ══════════════════════════════ */
+    #the-tools {
+      background: var(--light-gray);
+      color: var(--near-black);
+      padding: clamp(4rem, 8vw, 7rem) 0;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .tools-grid { grid-template-columns: 1fr; }
+    }
+
+    .tool-card {
+      background: var(--white);
+      border-left: var(--card-border);
+      padding: 1.75rem;
+      border-radius: var(--border-radius);
+    }
+
+    .tool-card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--near-black);
+      margin-bottom: 0.6rem;
+    }
+
+    .tool-card-text {
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.65;
+    }
+
+    /* ══════════════════════════════
+       7. THE HANDBOOK
+    ══════════════════════════════ */
+    #the-handbook {
+      background: var(--near-black);
+      padding: clamp(4rem, 8vw, 7rem) 0;
+    }
+
+    .handbook-cols {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: center;
+      margin-top: 2.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .handbook-cols { grid-template-columns: 1fr; }
+    }
+
+    .book-cover {
+      background: var(--crimson);
+      aspect-ratio: 6/9;
+      max-width: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+      border-radius: 4px;
+      box-shadow: 8px 8px 32px rgba(0,0,0,0.5);
+      text-align: center;
+    }
+
+    .book-cover-tag {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 1.5rem;
+    }
+
+    .book-cover-title {
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 2rem;
+    }
+
+    .book-cover-rule {
+      width: 40px;
+      height: 3px;
+      background: rgba(255,255,255,0.4);
+      margin: 0 auto 1.5rem;
+    }
+
+    .book-cover-author {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 0.05em;
+    }
+
+    .handbook-desc {
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      color: var(--dim-white);
+      line-height: 1.75;
+      margin-bottom: 2rem;
+    }
+
+    .handbook-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* ══════════════════════════════
+       8. FOOTER
+    ══════════════════════════════ */
+    #footer {
+      background: var(--near-black);
+      border-top: 1px solid #222;
+      padding: clamp(3rem, 6vw, 5rem) 0 2rem;
+    }
+
+    .footer-byline {
+      font-size: 0.9rem;
+      color: var(--mid-gray);
+      margin-bottom: 2rem;
+    }
+
+    .email-capture {
+      margin-bottom: 2.5rem;
+    }
+
+    .email-capture-label {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+
+    .email-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      max-width: 440px;
+    }
+
+    .email-input {
+      flex: 1;
+      min-width: 200px;
+      padding: 0.75rem 1rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      background: #1C1C1C;
+      border: 1px solid #333;
+      color: var(--white);
+      border-radius: var(--border-radius);
+      outline: none;
+      transition: border-color var(--transition);
+    }
+
+    .email-input::placeholder { color: #666; }
+    .email-input:focus { border-color: var(--crimson); }
+
+    .email-submit {
+      padding: 0.75rem 1.5rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      background: var(--crimson);
+      color: var(--white);
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: background var(--transition);
+    }
+
+    .email-submit:hover { background: var(--dark-crimson); }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      color: #555;
+    }
+
+    /* ══════════════════════════════
+       RESPONSIVE NAV TWEAK
+    ══════════════════════════════ */
+    @media (max-width: 600px) {
+      .nav-links {
+        gap: 0.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ 1. STICKY NAV ══ -->
+  <header id="site-nav" role="banner">
+    <div class="container nav-inner">
+      <span class="nav-logo">Rogue Board Member</span>
+      <nav aria-label="Site navigation">
+        <ul class="nav-links">
+          <li><a href="#rogue-criteria">Are You Rogue?</a></li>
+          <li><a href="#the-tools">The Tools</a></li>
+          <li><a href="#policy-diet">The Policy Diet</a></li>
+          <li><a href="#the-handbook">The Handbook</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ══ 2. HERO ══ -->
+    <section id="hero" aria-labelledby="hero-heading">
+      <div class="container">
+        <h1 class="hero-heading" id="hero-heading">
+          You ran for the school board because you believed every child deserved better. So why is your board still talking about everything except whether students are actually learning?
+        </h1>
+        <hr class="hero-rule" />
+        <p class="hero-sub">
+          The Rogue School Board Member's Handbook is for board members who are done pretending that adult-focused governance is good enough.
+        </p>
+        <div class="hero-ctas">
+          <a href="#rogue-criteria" class="btn btn-crimson">Am I Rogue?</a>
+          <a href="https://www.amazon.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Get the Handbook →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ 3. ROGUE CRITERIA ══ -->
+    <section id="rogue-criteria" aria-labelledby="criteria-heading">
+      <div class="container">
+        <p class="criteria-eyebrow">The Test</p>
+        <h2 class="section-title-light" id="criteria-heading">Are You Rogue?</h2>
+        <p class="criteria-intro">A Rogue board member meets three criteria. Do you?</p>
+        <div class="criteria-list">
+          <article class="criterion">
+            <span class="criterion-number" aria-hidden="true">1</span>
+            <div class="criterion-body">
+              <h3 class="criterion-title">Awareness</h3>
+              <p class="criterion-text">You understand, without reservation, that the sole purpose of a school board is to ensure students achieve measurable learning outcomes. Not to represent adults. Not to be elected. Not to feel good about your service. Student outcomes.</p>
+            </div>
+          </article>
+          <article class="criterion">
+            <span class="criterion-number" aria-hidden="true">2</span>
+            <div class="criterion-body">
+              <h3 class="criterion-title">Acknowledgment</h3>
+              <p class="criterion-text">You can honestly acknowledge that prior to this moment, some of your governance behaviors have served adult interests more than student outcomes — and that this must change.</p>
+            </div>
+          </article>
+          <article class="criterion">
+            <span class="criterion-number" aria-hidden="true">3</span>
+            <div class="criterion-body">
+              <h3 class="criterion-title">Action</h3>
+              <p class="criterion-text">You commit to dedicating at least 50% of board time and energy to monitoring whether student outcomes are actually improving. Not to inputs. Not to adult activity. Student outcomes.</p>
+            </div>
+          </article>
+        </div>
+        <p class="criteria-coda">If all three are true, you're Rogue. Now let's get to work.</p>
+      </div>
+    </section>
+
+    <!-- ══ 4. CORE DISTINCTION ══ -->
+    <section id="core-distinction" aria-labelledby="distinction-heading">
+      <div class="container">
+        <h2 class="section-title-dark" id="distinction-heading">The Problem With Most Boards</h2>
+        <div class="distinction-cols">
+          <div class="distinction-card">
+            <span class="section-label label-gray">Inputs</span>
+            <h3 class="distinction-card-title">Resources Applied</h3>
+            <p class="distinction-card-text">Funding, staffing, materials, programs — the things boards pour energy into without ever asking whether any of it changes what students know and can do.</p>
+          </div>
+          <div class="distinction-card">
+            <span class="section-label label-gray">Outputs</span>
+            <h3 class="distinction-card-title">Implementation Measures</h3>
+            <p class="distinction-card-text">Courses offered, tests administered, activities completed — the busy work of governance that looks like accountability but isn't.</p>
+          </div>
+          <div class="distinction-card highlight">
+            <span class="section-label label-crimson">Outcomes</span>
+            <h3 class="distinction-card-title">What Students Actually Know</h3>
+            <p class="distinction-card-text">What students can do — the only measure that matters. The number your board should be obsessed with. The thing most boards rarely discuss.</p>
+          </div>
+        </div>
+        <p class="distinction-statement">Most boards spend 90%+ of their time on inputs. Rogue boards spend at least 50% of their time on outcomes.</p>
+        <div class="stat-callout" aria-label="50% — minimum of meeting time a Rogue board dedicates to monitoring student outcome progress">
+          <span class="stat-number" aria-hidden="true">50%</span>
+          <p class="stat-text">minimum of meeting time a Rogue board dedicates to monitoring student outcome progress</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ 5. POLICY DIET ══ -->
+    <section id="policy-diet" aria-labelledby="policy-heading">
+      <div class="container">
+        <p class="policy-eyebrow">Board Policy</p>
+        <h2 class="section-title-light" id="policy-heading">The Policy Diet</h2>
+        <p class="policy-subtitle">Most school board policy manuals run 1,000+ pages. Rogues cut to 30–50.</p>
+        <div class="policy-cols">
+          <div class="policy-card bloated">
+            <p class="policy-card-title">Bloated Policies</p>
+            <ul>
+              <li>1,000+ pages nobody reads</li>
+              <li>Policies that contradict each other</li>
+              <li>Rules from 30 years ago</li>
+              <li>Staff directives masquerading as board policy</li>
+            </ul>
+          </div>
+          <div class="policy-card rogue">
+            <p class="policy-card-title">Rogue Policies — 4 Categories Only</p>
+            <ul>
+              <li><strong>Goals</strong> — student outcome targets</li>
+              <li><strong>Guardrails</strong> — community values</li>
+              <li><strong>Delegation</strong> — board-staff authority</li>
+              <li><strong>Governing</strong> — board conduct</li>
+            </ul>
+            <p style="font-size:0.85rem; margin-top:1rem; color: var(--mid-gray);">Each monitored. Each current. Each focused.</p>
+          </div>
+        </div>
+        <blockquote class="policy-statement">
+          "A board that can't summarize its own policy manual doesn't have policy. It has paperwork."
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- ══ 6. TOOLS ══ -->
+    <section id="the-tools" aria-labelledby="tools-heading">
+      <div class="container">
+        <h2 class="section-title-dark" id="tools-heading">Rogue Tools</h2>
+        <div class="tools-grid">
+          <article class="tool-card">
+            <h3 class="tool-card-title">SMART Student Outcome Goals</h3>
+            <p class="tool-card-text">Specific, Measurable, Attainable, Results-focused, Time-bound targets for actual student learning — not adult activities — with 3–5 year timeframes. If your goals don't describe what students will know and when, they aren't goals.</p>
+          </article>
+          <article class="tool-card">
+            <h3 class="tool-card-title">Monitoring Calendar</h3>
+            <p class="tool-card-text">A multi-year schedule that maps which student outcome goals your board reviews each month. If it's not on the calendar, it won't get monitored. This is the infrastructure of accountability — build it or accept the drift.</p>
+          </article>
+          <article class="tool-card">
+            <h3 class="tool-card-title">Time Use Evaluation</h3>
+            <p class="tool-card-text">Monthly tracking of the percentage of meeting time spent on student outcome monitoring. Target: 50% minimum. This is how you know if you're actually Rogue — or just talking about being Rogue.</p>
+          </article>
+          <article class="tool-card">
+            <h3 class="tool-card-title">Progress Monitoring Conversations</h3>
+            <p class="tool-card-text">A disciplined discussion protocol: Who is responsible → What does the data show → Why is progress or lack of progress happening → How will we respond. In that order. Always. Everything else is theater.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ 7. THE HANDBOOK ══ -->
+    <section id="the-handbook" aria-labelledby="handbook-heading">
+      <div class="container">
+        <h2 class="section-title-light" id="handbook-heading">The Rogue School Board Member's Handbook</h2>
+        <div class="handbook-cols">
+          <div>
+            <div class="book-cover" aria-hidden="true">
+              <p class="book-cover-tag">A Field Guide</p>
+              <p class="book-cover-title">The Rogue School Board Member's Handbook</p>
+              <div class="book-cover-rule"></div>
+              <p class="book-cover-author">Airick Journey Crabill</p>
+            </div>
+          </div>
+          <div>
+            <p class="handbook-desc">
+              A practical field guide for the board member who is done with performative governance. The Handbook provides the frameworks, tools, and mindset shifts needed to become genuinely outcomes-focused — and to bring your board with you.
+            </p>
+            <p class="handbook-desc">
+              Whether you're newly elected or a veteran member ready to change course, this is the resource that turns conviction into practice.
+            </p>
+            <div class="handbook-ctas">
+              <a href="https://www.amazon.com" target="_blank" rel="noopener noreferrer" class="btn btn-crimson">Get the Handbook</a>
+              <a href="https://effectiveschoolboards.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Find a Governance Coach</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══ 8. FOOTER ══ -->
+  <footer id="footer">
+    <div class="container">
+      <p class="footer-byline">The Rogue School Board Member's Handbook by Airick Journey Crabill</p>
+      <div class="email-capture">
+        <p class="email-capture-label">Get weekly rogue governance insights</p>
+        <form class="email-form" onsubmit="handleSubscribe(event)">
+          <label for="email-input" class="sr-only">Email address</label>
+          <input
+            type="email"
+            id="email-input"
+            class="email-input"
+            placeholder="your@email.com"
+            required
+            autocomplete="email"
+          />
+          <button type="submit" class="email-submit">Subscribe</button>
+        </form>
+      </div>
+      <p class="footer-copy">© 2026 Airick Journey Crabill. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <style>
+    /* Screen-reader-only utility */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+
+  <script>
+    function handleSubscribe(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.email-submit');
+      const input = e.target.querySelector('.email-input');
+      btn.textContent = 'Thanks!';
+      btn.style.background = '#228822';
+      input.value = '';
+      setTimeout(() => {
+        btn.textContent = 'Subscribe';
+        btn.style.background = '';
+      }, 3000);
+    }
+  </script>
+
+</body>
+</html>
