@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Find a Governance Coach — Rogue Board Member</title>
+  <meta name="description" content="Connect with a governance coach who can help your board become genuinely outcomes-focused." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --near-black: #111111;
+      --crimson:    #CC0000;
+      --dark-crimson: #990000;
+      --white:      #FFFFFF;
+      --light-gray: #F5F5F5;
+      --mid-gray:   #AAAAAA;
+      --dim-white:  #CCCCCC;
+      --border-radius: 4px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--near-black);
+      color: var(--white);
+      line-height: 1.6;
+      font-size: 16px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      background: var(--near-black);
+      border-bottom: 1px solid #222;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(1rem, 5vw, 3rem);
+      height: 60px;
+    }
+    .nav-logo {
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
+      font-weight: 800;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .nav-back {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--mid-gray);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--white); }
+
+    /* HERO */
+    .page-hero {
+      padding: clamp(4rem, 10vw, 7rem) clamp(1rem, 5vw, 3rem) clamp(3rem, 6vw, 5rem);
+      max-width: 760px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .hero-rule {
+      width: clamp(40px, 8vw, 70px);
+      height: 4px;
+      background: var(--crimson);
+      border: none;
+      margin-bottom: 2rem;
+    }
+    h1 {
+      font-size: clamp(1.8rem, 4.5vw, 3rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      margin-bottom: 1.25rem;
+    }
+    .hero-sub {
+      font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+      font-weight: 300;
+      color: var(--dim-white);
+      line-height: 1.75;
+      max-width: 620px;
+    }
+
+    /* WHAT TO EXPECT */
+    .expect-section {
+      background: #161616;
+      border-top: 1px solid #222;
+      border-bottom: 1px solid #222;
+      padding: clamp(3rem, 6vw, 5rem) clamp(1rem, 5vw, 3rem);
+    }
+    .expect-inner { max-width: 760px; margin: 0 auto; }
+    .expect-inner h2 {
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      font-weight: 700;
+      color: var(--crimson);
+      letter-spacing: 0.01em;
+      margin-bottom: 1.5rem;
+    }
+    .expect-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1.25rem;
+    }
+    .expect-card {
+      background: #1C1C1C;
+      border-left: 4px solid var(--crimson);
+      padding: 1.25rem 1.1rem;
+      border-radius: var(--border-radius);
+    }
+    .expect-card h3 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.4rem;
+    }
+    .expect-card p {
+      font-size: 0.85rem;
+      color: var(--mid-gray);
+      line-height: 1.6;
+    }
+
+    /* FORM */
+    .form-section {
+      flex: 1;
+      padding: clamp(3.5rem, 8vw, 6rem) clamp(1rem, 5vw, 3rem);
+    }
+    .form-inner {
+      max-width: 620px;
+      margin: 0 auto;
+    }
+    .form-inner h2 {
+      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.01em;
+      margin-bottom: 0.5rem;
+    }
+    .form-inner .form-sub {
+      font-size: 0.9rem;
+      color: var(--mid-gray);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .form-field {
+      margin-bottom: 1.25rem;
+    }
+    .form-field label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--dim-white);
+      margin-bottom: 0.4rem;
+    }
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      background: #1C1C1C;
+      border: 1px solid #333;
+      color: var(--white);
+      border-radius: var(--border-radius);
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+    }
+    .form-field input::placeholder,
+    .form-field textarea::placeholder { color: #555; }
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus { border-color: var(--crimson); }
+    .form-field select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; cursor: pointer; }
+    .form-field select option { background: #1C1C1C; color: var(--white); }
+    .form-field textarea { resize: vertical; min-height: 110px; line-height: 1.6; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    @media (max-width: 540px) { .form-row { grid-template-columns: 1fr; } }
+
+    .submit-btn {
+      width: 100%;
+      padding: 0.9rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      background: var(--crimson);
+      color: var(--white);
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 0.5rem;
+      letter-spacing: 0.02em;
+    }
+    .submit-btn:hover { background: var(--dark-crimson); }
+
+    #form-success {
+      display: none;
+      margin-top: 1.5rem;
+      background: #1C2C1C;
+      border: 1px solid #336633;
+      border-radius: var(--border-radius);
+      padding: 1.25rem 1.5rem;
+    }
+    #form-success p {
+      font-size: 0.95rem;
+      color: #88cc88;
+      line-height: 1.6;
+    }
+
+    footer {
+      background: var(--near-black);
+      border-top: 1px solid #222;
+      padding: 1.5rem clamp(1rem, 5vw, 3rem);
+      text-align: center;
+      font-size: 0.78rem;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">Rogue Board Member</a>
+    <a href="/" class="nav-back">← Back</a>
+  </nav>
+
+  <div class="page-hero">
+    <hr class="hero-rule" />
+    <h1>Find a Governance Coach</h1>
+    <p class="hero-sub">A governance coach can help your board move from performative oversight to genuine student-outcomes focus. Fill out the form below and we'll connect you with a coach who fits your district's needs.</p>
+  </div>
+
+  <section class="expect-section">
+    <div class="expect-inner">
+      <h2>What a governance coach does</h2>
+      <div class="expect-grid">
+        <div class="expect-card">
+          <h3>Governance Assessment</h3>
+          <p>Evaluates your board's current practices against the Rogue criteria and identifies the highest-leverage change opportunities.</p>
+        </div>
+        <div class="expect-card">
+          <h3>Goal-Setting Support</h3>
+          <p>Guides your board through setting SMART student outcome goals and building the policy framework to pursue them.</p>
+        </div>
+        <div class="expect-card">
+          <h3>Monitoring Infrastructure</h3>
+          <p>Helps build your monitoring calendar so outcome progress stays on the agenda — not just when things go wrong.</p>
+        </div>
+        <div class="expect-card">
+          <h3>Board Culture Shift</h3>
+          <p>Works alongside your board over time to move from adult-focused to student-outcome-focused governance — and keep it there.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="form-section">
+    <div class="form-inner">
+      <h2>Get connected</h2>
+      <p class="form-sub">We'll follow up within 2 business days to learn more and match you with the right coach.</p>
+
+      <form id="coach-form">
+        <input type="hidden" name="form" value="rogueboardmember-find-coach" />
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="name" placeholder="First and last name" required autocomplete="name" />
+          </div>
+          <div class="form-field">
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email" />
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="district">School district</label>
+          <input type="text" id="district" name="district" placeholder="e.g. Springfield Unified School District" required autocomplete="organization" />
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="state">State</label>
+            <select id="state" name="state" required>
+              <option value="" disabled selected>Select state</option>
+              <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option>
+              <option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option>
+              <option>Florida</option><option>Georgia</option><option>Hawaii</option><option>Idaho</option>
+              <option>Illinois</option><option>Indiana</option><option>Iowa</option><option>Kansas</option>
+              <option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option>
+              <option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option>
+              <option>Missouri</option><option>Montana</option><option>Nebraska</option><option>Nevada</option>
+              <option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option><option>New York</option>
+              <option>North Carolina</option><option>North Dakota</option><option>Ohio</option><option>Oklahoma</option>
+              <option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option>
+              <option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option>
+              <option>Vermont</option><option>Virginia</option><option>Washington</option><option>West Virginia</option>
+              <option>Wisconsin</option><option>Wyoming</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="role">Your role</label>
+            <select id="role" name="role" required>
+              <option value="" disabled selected>Select role</option>
+              <option>Board Member</option>
+              <option>Board Chair</option>
+              <option>Superintendent</option>
+              <option>District Staff</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="challenge">What's the biggest governance challenge your board faces right now?</label>
+          <textarea id="challenge" name="challenge" placeholder="Describe where your board is stuck, what you've tried, or what you're hoping a coach can help with…"></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Send My Request</button>
+      </form>
+
+      <div id="form-success">
+        <p>Your request is in. We'll be in touch within 2 business days to learn more and match you with a governance coach.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 airick journey crabill. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('coach-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn  = form.querySelector('.submit-btn');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+      fetch('https://formspree.io/f/xayzdydv', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form),
+      })
+      .then(r => {
+        if (r.ok) {
+          form.style.display = 'none';
+          document.getElementById('form-success').style.display = 'block';
+        } else {
+          btn.textContent = 'Try again';
+          btn.disabled = false;
+        }
+      })
+      .catch(() => {
+        btn.textContent = 'Try again';
+        btn.disabled = false;
+      });
+    });
+  </script>
+
+</body>
+</html>
